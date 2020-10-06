@@ -12,19 +12,15 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
     $login = false;
     
     
-    if(isset($_GET['mail'])){ 
-
-        if (strpos($_GET['mail'], '@') && strpos($_GET['mail'], '.')) {
+    
+    if(strpos($_GET['mail'], '@') && strpos($_GET['mail'], '.')) {
             $mail = $_GET['mail'];
             $login = true;
-        }else{
+    }else if(isset($_GET['mail'])){ 
+            $mail = 'inserisci mail';
+    }else{
             $mail = "mail non valida";
-        }
-
-        }else{
-
-         $mail = 'inserisci mail';
-        }
+    }
 ?>
 
 <!DOCTYPE html>
